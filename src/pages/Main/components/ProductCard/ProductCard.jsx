@@ -1,13 +1,11 @@
 import React, {
-  useRef, useEffect, useState, useContext,
+  useRef, useEffect, useState,
 } from 'react';
 import {
   Card, Col, Row, Typography, Tooltip,
 } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import { ShoppingOutlined } from '@ant-design/icons';
-import { CartContext } from '../../../../cart/store/cart';
-import { types } from '../../../../cart/reducer/cartReducer';
 import { ProductModal } from '../../../../components';
 
 const ProductCard = (props) => {
@@ -15,8 +13,6 @@ const ProductCard = (props) => {
     name, price, type, image, id, limit = 18, add,
   } = props;
   const [openedModal, toggleModal] = useState();
-  const { dispatch } = useContext(CartContext);
-
   const imgRef = useRef();
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
